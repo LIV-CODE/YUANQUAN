@@ -37,7 +37,7 @@
 					共筑灵感源泉
 				</view>
 				<view class="container-search">
-					<uni-search-bar  radius="190" placeholder="搜索一下，爱上这个世界" @confirm="search"   cancelButton="none" bgColor="#fff"/>
+					<uni-search-bar  radius="190" placeholder="搜索一下，发现灵感!" @confirm="search"   cancelButton="none" bgColor="#fff"/>
 				</view>
 				
 			</view>
