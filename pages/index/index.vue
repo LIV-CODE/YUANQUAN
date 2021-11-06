@@ -332,8 +332,8 @@
 					selectedBorder: '1px rgba(50, 144, 224, 1) solid'
 				},
 
-				// 导航区域
-				vajra: [],
+				// 导航区域（如果是接后端此字段为空）
+				vajra:[{"title":"搜索","type":"xs_tap","appid":"","route":"\/pages\/search\/search","himg":"..\/..\/static\/index\/1.png"},{"title":"分类","type":"xs_tap","appid":"","route":"..\/category\/category","himg":"..\/..\/static\/index\/2.png"},{"title":"收藏","type":"xs_default","appid":"","route":"..\/friend\/friend","himg":"..\/..\/static\/index\/4.png"},{"title":"热门","type":"xs_program","appid":"wx0f2bd3c9f8970c64","route":"pages\/index\/index","himg":"..\/..\/static\/index\/3.png"}],
 
 				// 焦点
 				focusList: [],
@@ -478,14 +478,14 @@
 				});
 				//#endif
 
-				// 首页金刚区域
-				uni.request({
-					url: Getdstrict,
-					success: (res) => {
-						console.log(res.data)
-						that.vajra = res.data[0];
-					}
-				});
+				// 首页金刚区域（接入后端时打开）
+				// uni.request({
+				// 	url: Getdstrict,
+				// 	success: (res) => {
+				// 		console.log(res.data)
+				// 		that.vajra = res.data[0];
+				// 	}
+				// });
 			},
 
 			// 引导添加到我的小程序
