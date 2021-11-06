@@ -5,7 +5,7 @@ de <template>
 			<view class="list-two-w">
 				<view class="list-two-list">
 					<view class="list-name">
-						虚怀若谷
+						YUANQUAN 源泉
 					</view>
 					<view class="list-name-slug">
 						兮其若朴，旷兮其若谷
@@ -59,7 +59,7 @@ de <template>
 			</view>
 			<!-- #ifdef MP-WEIXIN -->
 			<!-- 关注微信公众号 -->
-			<view class="account-view" v-if="about_center[0].public_follow != ''">
+			<!-- <view class="account-view" v-if="about_center[0].public_follow != ''">
 				<view class="account-flex">
 					<view class="account-img">
 						<image class="fengrui-img" :src="about_center[0].public_logo" mode=""></image>
@@ -76,7 +76,7 @@ de <template>
 				<view class="">
 					<button hover-class="fengrui-blue-btn-lo-hover" class="account-btn" @tap="accountTap(about_center[0].public_follow)">关注</button>
 				</view>
-			</view>
+			</view> -->
 			<!-- #endif -->
 		</view>
 

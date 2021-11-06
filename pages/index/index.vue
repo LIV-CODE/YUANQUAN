@@ -8,9 +8,13 @@
 		<view class="menu_scroll_top_img">
 			<!-- <image class="fengrui-img" src="../../static/index/333.svg" mode="aspectFill"></image> -->
 			<!-- 分类菜单 -->
-			<view :class=" scrollTopHightX < 120 ? 'menu_scroll_top_one':'menu_scroll_top_tow'">
+			<!-- 上滑动到一定位置顶栏变色 -->
+			<view :class=" scrollTopHightX < 10 ? 'menu_scroll_top_one':'menu_scroll_top_tow'">
 				<view class="menu-scroll">
 					<scroll-view class="" scroll-x="true">
+						<view class="menu-title">
+							YUANQUAN源泉
+						</view>	
 						<view class="menu-scroll-leat">
 							<view :class="active == index ? 'active_menu_scroll_leat_font':'menu_scroll_leat_font' "
 								v-for="(menu,index) in menusLsit" :key="index" @tap="menuTap(index)">
@@ -27,10 +31,10 @@
 			<!-- 搜索框 -->
 			<view class="container">
 				<view class="container-h">
-					悬悬而望
+					开源搜索
 				</view>
 				<view class="container-slog">
-					愿我们都不后悔，出现在彼此的世界中
+					共筑灵感源泉
 				</view>
 				<view class="container-search">
 					<uni-search-bar  radius="190" placeholder="搜索一下，爱上这个世界" @confirm="search"   cancelButton="none" bgColor="#fff"/>
@@ -38,7 +42,7 @@
 				
 			</view>
 			<!-- 轮播图 -->
-			<view class="content-all" v-if="is_data_rotation">
+			<!-- <view class="content-all" v-if="is_data_rotation">
 				<swiper class="swiper-box" @change="change" :autoplay="autoplay" :interval="interval"
 					:duration="duration">
 					<swiper-item v-for="(item, index) in rotation" :key="item.id" @tap="openSwipre(item.id)">
@@ -47,7 +51,7 @@
 						</view>
 					</swiper-item>
 				</swiper>
-			</view>
+			</view> -->
 
 			<!-- 导航区域 -->
 			<view class="Vajra-bg">
@@ -78,7 +82,7 @@
 
 				</view>
 				<!-- 海报 -->
-				<view class="poster">
+				<!-- <view class="poster">
 					<view class="poster-imgs">
 						<image class="fengrui-img" src="../../static/index/poster.svg" mode="aspectFit"></image>
 					</view>
@@ -86,17 +90,17 @@
 						心念所至，生万千喜欢22
 					</view>
 					<button class="poster-btn" @tap="popupSever()">分享</button>
-				</view>
+				</view> -->
 			</view>
 
 			<!-- 首页公告 -->
-			<view class="notice-flex">
+			<!-- <view class="notice-flex">
 				<view class="notice-img">
 					<image class="fengrui-img" src="../../static/index/notice.png" mode=""></image>
 				</view>
 				<uni-notice-bar class="notice-fr-title" scrollable="true" :color="color" single="true" :speed="speed"
 					:text="about_center[0].fr_notice"></uni-notice-bar>
-			</view>
+			</view> -->
 
 			<!-- #ifdef MP-WEIXIN -->
 			<view v-if="about_center[0].index_jiaodian  == '1'">
@@ -749,7 +753,7 @@
 
 <style>
 	.container {
-		margin: -220upx 30upx 30upx 30upx;
+		margin: -150upx 30upx 30upx 30upx;
 		z-index: 50;
 		background-color: #3482e2;
 		border-radius: 20upx;
