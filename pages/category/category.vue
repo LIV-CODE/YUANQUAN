@@ -5,7 +5,7 @@ de <template>
 			<view class="list-two-w">
 				<view class="list-two-list">
 					<view class="list-name">
-						YUANQUAN 源泉
+						ResourseSpring 源泉
 					</view>
 					<view class="list-name-slug">
 						兮其若朴，旷兮其若谷

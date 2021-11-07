@@ -13,7 +13,7 @@
 				<view class="menu-scroll">
 					<scroll-view class="" scroll-x="true">
 						<view class="menu-title">
-							YUANQUAN源泉
+							ResourseSpring 源泉
 						</view>	
 						<view class="menu-scroll-leat">
 							<view :class="active == index ? 'active_menu_scroll_leat_font':'menu_scroll_leat_font' "
@@ -31,7 +31,7 @@
 			<!-- 搜索框 -->
 			<view class="container">
 				<view class="container-h">
-					开源搜索
+					灵感搜索
 				</view>
 				<view class="container-slog">
 					共筑灵感源泉

@@ -1,84 +1,27 @@
 <template>
-	<view class="overfor-x">
-		<!-- 搜索框 -->
-		<view class="container">
-			<view class="container-h">
-				悬悬而望
-			</view>
-			<view class="container-slog">
-				愿我们都不后悔，出现在彼此的世界中
-			</view>
-			<view class="container-search">
-				<uni-search-bar  radius="190" placeholder="搜索一下，爱上这个世界" @confirm="search"   cancelButton="none" bgColor="#fff"/>
-			</view>
-			
+	<view class="tag-all">
+		<!-- <span class="tag-w" v-for="(tgs,index) in tagsall" :key="index" @tap="tgsTap(tgs.id)" >
+			{{ tgs.name }}
+		</span> -->
+	<!-- 搜索框 -->
+	<view class="container">
+		<view class="container-h">
+			灵感搜索
 		</view>
-		<!-- 标签-->
-		<view class="swiper-list">
-			<scroll-view class="" scroll-x="true" show-scrollbar="false">
-				<view class="label-list" v-for="(antag,index) in searchTag" :key="index" @tap="tapTagHead(antag.id)">
-					{{ antag.name }}
-				</view>
-			</scroll-view>
+		<view class="container-search">
+			<uni-search-bar  radius="190" placeholder="搜索一下，发现灵感!" @confirm="search"   cancelButton="none" bgColor="#fff"/>
+		</view>
+	</view>
+		<view class="tag-view">
+			<view class="tag-li" v-for="(tgs,index) in tagsall" :key="index" @tap="tgsTap(tgs.id)">
+				<view class="tag-yuan" :style="{background:tag_color[index]}"></view>
+				{{ tgs.name }}
+			</view>
 		</view>
 
-
-		<!-- 判断微信流量主 -->
-		<!-- #ifdef MP-WEIXIN -->
-		<block v-if="about_center.length>0">
-			<view class="" style="margin: 30upx 30upx;">
-				<ad-custom style="width: 100% !important;" :unit-id="about_center[0].wx_gezi"></ad-custom>
-			</view>
-		</block>
-		<!-- #endif -->
-
-		<!-- 判断QQ流量主 -->
-		<!-- #ifdef MP-QQ -->
-		<block v-if="about_center.length>0">
-			<view class="" style="">
-				<ad :unit-id="about_center[0].qq_gezi" type="block" block-orientation="landscape" block-size="5"></ad>
-			</view>
-		</block>
-		<!-- #endif -->
-
-
-
-		<!-- 猜你想搜 -->
-		<view class="titel-felx">
-			<view class="time-img">
-				<image class="fengrui-img" src="../../static/index/3.png" mode=""></image>
-			</view>
-			<view class="titel-h-go">
-				热门文章
-			</view>
-		</view>
-		<!-- 列表 -->
-		<block v-for="(item ,index) in hotTagList" :key="item.id">
-			<view class="list-li" @tap="tapTagList(item.id)" v-if="is_list">
-				<view class="list-img">
-					<image class="fengrui-img" :src="item.thumbnailurl" mode="aspectFill"></image>
-				</view>
-				<view class="list-li-left">
-					<view class="list-li-left-h">
-						{{ item.title.rendered }}
-					</view>
-					<view class="list-li-left-describe">
-						<view class="">
-							{{ searchTag[0].name }}
-						</view>
-						<view>{{ item.date }}</view>
-					</view>
-				</view>
-			</view>
-		</block>
-		<!-- 没有内容 -->
-		<view class="no-datalist" v-if="is_data">
-			<view class="no-img">
-				<image class="fengrui-img" src="../../static/data/data-no.svg" mode=""></image>
-			</view>
-			<view class="no-text">
-				热门标签内容为空！！！赶紧搜起来......
-			</view>
+		<!-- 文章列表没有数据 -->
+		<view class="no-list-data" v-if="no_list_data">
+			--我的底线就到这里了--
 		</view>
 	</view>
 </template>
@@ -91,20 +34,25 @@
 	export default {
 		data() {
 			return {
-				is_list: true,
-				is_data: false,
-				searchTag: [{
-					id: 1,
-					name: '数据加载中'
-				}],
-				hotTagList: [],
-				frisTag: '',
-				about_center: [],
-				QQadLsit: [],
-				// 数据缓存
-				totalte_sources: [],
-				// 限制分类id
-				exclude:'',
+				tagsall: [],
+				page: 1,
+				// 文章没有数据
+				no_list_data: false,
+				tag_color: [
+					'#ff0000', '#eb4310', '#f6941d', '#fbb417', '#ffff00', '#cdd541', '#99cc33', '#3f9337', '#219167', '#239676',
+					'#24998d', '#1f9baa', '#0080ff', '#3366cc', '#333399', '#003366', '#800080', '#a1488e', '#c71585', '#bd2158',
+					'#871F78', '#8E236B', '#D9D9F3', '#00FF00', '#6B238E', '#32CD99', '#5959AB', '#0000FF', '#2F4F4F', '#3232CD', 
+					'#6F4242', '#FF00FF', '#97694F', '#6B8E23', '#BC1717', '#00FFFF', '#7093DB', '#EAEAAE', '#238E68', '#FFFF00', 
+					'#855E42', '#9370DB', '#6B4226', '#545454', '#426F42', '#8E6B23', '#70DB93', '#856363', '#7F00FF', '#E6E8FA',
+					'#5C3317', '#D19275', '#7FFF00', '#3299CC', '#9F5F9F', '#8E2323', '#70DBDB', '#007FFF', '#B5A642', '#238E23', 
+					'#DB7093', '#FF1CAE', '#D9D919', '#CD7F32', '#A68064', '#00FF7F', '#A67D3D', '#DBDB70', '#2F2F4F', '#236B8E',
+					'#8C7853', '#C0C0C0', '#23238E', '#38B0DE', '#A67D3D', '#527F76', '#4D4DFF', '#DB9370', '#5F9F9F', '#93DB70', 
+					'#FF6EC7', '#D8BFD8', '#D98719', '#215E21', '#00009C', '#ADEAEA', '#B87333', '#4E2F2F', '#EBC79E', '#5C4033',
+					'#FF7F00', '#9F9F5F', '#CFB53B', '#CDCDCD', '#42426F', '#C0D9D9', '#FF7F00', '#5C4033', '#A8A8A8', '#FF2400', 
+					'#CC3299', '#2F4F2F', '#8F8FBD', '#DB70DB', '#D8D8BF', '#4A766E', '#E9C2A6', '#8FBC8F', '#99CC32', '#4F4F2F', 
+					'#32CD32', '#BC8F8F',	
+				]
+
 			}
 		},
 		onLoad() {
@@ -116,8 +64,7 @@
 			wx.showShareMenu({
 				withShareTicket: true,
 				menus: ['shareAppMessage', 'shareTimeline']
-			});
-
+			})
 			//#endif
 
 			//条件编译 QQ小程序分享
@@ -127,9 +74,14 @@
 			})
 			//#endif
 
-			// 获取格子广告
-			// this.adMainflow();
 
+			
+		},
+
+		// 监听触底
+		onReachBottom() {
+			this.page = this.page + 1;
+			this.allTags();
 		},
 
 		// 分享好友配置
@@ -141,7 +93,7 @@
 			return {
 				title: that.about_center[0].share_title,
 				imageUrl: that.about_center[0].share_title_url,
-				path: 'pages/search/search'
+				path: 'pages/tags/tags'
 			}
 		},
 
@@ -154,266 +106,136 @@
 					success: (res) => {
 						// 关于数据
 						that.about_center = res.data;
-						// 获取首页第一个文章
-						that.posOnew();
+						// 获取标签
+						this.allTags();
 					}
 				});
 			},
 
-			// 列表点击跳转
-			tapTagList: function(e) {
-				var that = this;
-				var posId = e;
-				uni.navigateTo({
-					url: '../data/data?id=' + posId,
-				})
-			},
-
-			// 获取首页第一个文章
-			posOnew: function() {
-				var that = this;
-				if(that.about_center[0].categ_filter !=''){
-					uni.request({
-						url: API + '/wp-json/wp/v2/posts?categories_exclude=' + that.about_center[0].categ_filter,
-						success: (res) => {
-							that.frisTag = res.data[0].id;
-							// 获取列表
-							this.posTagList();
-						}
-					});	
-				}else{
-					uni.request({
-						url: API + '/wp-json/wp/v2/posts?categories_exclude=0',
-						success: (res) => {
-							that.frisTag = res.data[0].id;
-							// 获取列表
-							this.posTagList();
-						}
-					});
-				}
-				
-			},
-
-			// 获取标签和文章
-			posTagList: function() {
+			// 获取标签数据
+			allTags: function() {
 				var that = this;
 				uni.request({
-					url: API + '/wp-json/wp/v2/tags?post=' + that.frisTag,
+					url: API + '/wp-json/wp/v2/tags?per_page=50&page=' + this.page,
 					success: (res) => {
-						this.searchTag = res.data;
-						this.onePosTag = res.data[0].id;
-						uni.request({
-							url: API + '/wp-json/wp/v2/posts?tags=' + this.onePosTag,
-							success: (res) => {
-								if (res.data.length == '') {
-									that.is_data = true;
-									that.is_list = false;
-								} else {
-									that.is_data = false;
-									that.is_list = true;
-									that.hotTagList = res.data.slice(0,6);
-								}
-							}
-						});
+						console.log(res.data)
+						if (res.data.length == '') {
+							that.no_list_data = true;
+						} else {
+							that.no_list_data = false;
+							that.tagsall = that.tagsall.concat(res.data);
+						}
 					}
 				});
 			},
 
-			// 搜索触发
-			search: function(e) {
-				var json = e.value;
-				if (json == '') {
-					uni.showToast({
-						title: '请输入内容',
-						mask: true,
-						icon: 'success',
-						duration: 1500
-					});
-				} else {
-					uni.navigateTo({
-						url: '../category/categ_lisst?keyword=' + json,
-					})
-				}
-			},
-
-			// 点击标签搜索
-			tapTagHead: function(e) {
+			// 点击标签跳转
+			tgsTap: function(e) {
 				var that = this;
 				var jstag = e;
+				console.log(jstag)
 				uni.navigateTo({
 					url: '../category/categ_lisst?jstag=' + jstag
 				})
-			},
+			}
 		}
 	}
 </script>
 
 <style>
-	/* 没有数据时候 */
-	.no-text {
-		color: #e6e6e6;
-		text-align: center;
-		font-size: 24upx;
-	}
-
-	.no-img {
-		margin: auto;
-		height: 400upx;
-		width: 400upx;
-	}
-
-	.no-datalist {
-		margin: auto;
-		overflow: hidden;
-		margin-bottom: 60upx;
-	}
-
-	/* 列表 */
-	.list-li-left-describe {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		display: -webkit-box;
-		-webkit-line-clamp: 1;
-		-webkit-box-orient: vertical;
-		color: #D5D5D5;
-		font-size: 20upx;
+	.container {
 		display: flex;
-		justify-content: space-between;
-	}
-
-	.list-li-tag {
-		color: #0BBDA6;
-		font-size: 20upx;
-	}
-
-	.list-li-left-h {
-
-		font-size: 26upx;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		-webkit-box-orient: vertical;
-	}
-
-	.list-li-left {
-		margin-left: 32upx;
-		flex-grow: 1;
-		height: 120upx;
-		display: flex;
-		flex-flow: column;
-		justify-content: space-between;
-	}
-
-	.list-img {
-		height: 120upx;
-		width: 140upx;
-		border-radius: 14upx;
-		overflow: hidden;
-		flex-shrink: 0;
-	}
-
-	.list-li {
-		display: flex;
-		margin: 20upx 30upx;
-		align-items: center;
-		background-color: #fff;
-		padding: 24upx;
-		border-radius: 20upx;
-	}
-
-	/* 标题 */
-	.time-img {
-		height: 40upx;
-		width: 40upx;
-	}
-	.title-h-ad {
-		height: 240upx;
-		border-radius: 16upx;
-		margin: 48upx;
-		overflow: hidden;
-	}
-
-	.titel-felx {
-		display: flex;
-		align-items: center;
-		padding: 28upx;
-	}
-
-	.titel-h-go {
-		font-size: 32upx;
-		margin-left: 20upx;
-	}
-	/* 标签 */
-	.swiper-list {
-		margin: 30upx 0upx 10upx 0upx;
-		white-space: nowrap;
+		flex-flow: wrap;
 		width: 100%;
-	}
-
-	.label-list {
-		height: 40upx;
-		padding: 12upx 36upx;
-		background-color: #7398d0;
-		border-radius: 100upx;
-		margin-left: 30upx;
-		color: #FFFFFF;
-		font-size: 28upx;
-		flex-shrink: 0;
-		display: inline-block;
-	}
-	.label-list:last-child {
-		margin-right: 30upx;
+		margin: 0upx 20upx 30upx 0upx;
+		background-color: #3482e2;
+		border-radius: 20upx;
+		/* padding: 30upx; */
+		overflow: hidden;
 	}
 	.container-h{
 		color: #FFFFFF;
 		font-size: 36upx;
 		margin: 50upx 40upx 0upx 40upx;
 	}
-	.container-slog{
-		color: #FFFFFF;
-		font-size: 24upx;
-		margin: 20upx 40upx 0upx 40upx; 
-	}
 	.container-search{
+		width: 100%;
 		margin: 40upx 0upx;
 	}
-	.container {
-		margin: 20upx 30upx;
-		background-color: #3482e2;
-		border-radius: 20upx;
-		/* padding: 30upx; */
-		overflow: hidden;
+	.tag-yuan {
+		height: 10upx;
+		width: 30upx;
+		background-color: #000000;
+		border-radius: 100upx;
+		position: absolute;
+		top: 20upx;
+		left: 20upx;
 	}
 
-	.fengrui-img {
-		height: 100%;
+	/* 标签样式 */
+	.tag-li {
+		background-color: #FFFFFF;
+		width: 30%;
+		flex-shrink: 0;
+		border-radius: 10upx;
+		height: 120upx;
+		margin: 8upx;
+		text-align: center;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		font-size: 24upx;
+		position: relative;
+	}
+
+	.tag-view {
+		display: flex;
+		flex-flow: wrap;
 		width: 100%;
 	}
-	.overfor-x{
-		overflow-x: hidden;
+
+	/* 列表没有数据 */
+	.no-list-data {
+		text-align: center;
+		margin: 30rpx 0px;
+		color: #ADADAD;
+		font-size: 20upx;
+	}
+
+	.tag-w {
+		height: 60upx;
+		line-height: 60upx;
+		border-radius: 10upx;
+		border: 1px #ececec solid;
+		background-color: #ececec;
+		padding: 0upx 40upx;
+		font-size: 30upx;
+		color: #999;
+		margin: 20upx;
+	}
+
+	.tag-all {
+		margin: 48upx;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
 	}
 
 	page {
 		background-color: #F7F7F7;
 		overflow-x: hidden;
 	}
-	::-webkit-scrollbar {
-	  width: 0;
-	  height: 0;
-	  color: transparent;
-	}
+
 	/* 暗黑模式下应用的样式 */
 	@media (prefers-color-scheme: dark) {
 		page {
 			background: #161616;
 		}
-		.list-li{
-			background: #202020;
+
+		.tag-li {
+			background: #202020
 		}
-		.uni-searchbar__box {
-			border-color: #202020;
-		
-		}
+
 	}
 </style>

@@ -115,11 +115,11 @@
 				"selectedIconPath": "static/tabar/catelog_h.png",
 				"text": "专题"
 			}, {
-			// 	"pagePath": "pages/search/search",
-			// 	"iconPath": "static/tabar/res.png",
-			// 	"selectedIconPath": "static/tabar/res_h.png",
-			// 	"text": "发现"
-			// }, {
+				"pagePath": "pages/search/search",
+				"iconPath": "static/tabar/res.png",
+				"selectedIconPath": "static/tabar/res_h.png",
+				"text": "发现"
+			}, {
 				"pagePath": "pages/me/me",
 				"iconPath": "static/tabar/my.png",
 				"selectedIconPath": "static/tabar/my_h.png",
