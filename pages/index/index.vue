@@ -321,7 +321,7 @@
 				},
 
 				// 导航区域（如果是接后端此字段为空）
-				vajra:[{"title":"搜索","type":"xs_tap","appid":"","route":"\/pages\/search\/search","himg":"..\/..\/static\/index\/1.png"},{"title":"分类","type":"xs_tap","appid":"","route":"..\/category\/category","himg":"..\/..\/static\/index\/2.png"},{"title":"收藏","type":"xs_default","appid":"","route":"..\/questions\/questions-list","himg":"..\/..\/static\/index\/4.png"}],
+				vajra:[{"title":"搜索","type":"xs_tap","appid":"","route":"\/pages\/search\/search","himg":"..\/..\/static\/index\/1.png"},{"title":"分类","type":"xs_default","appid":"","route":"..\/category\/category","himg":"..\/..\/static\/index\/2.png"},{"title":"收藏","type":"xs_default","appid":"","route":"..\/questions\/questions-list","himg":"..\/..\/static\/index\/4.png"}],
 
 				// 焦点
 				focusList: [],
