@@ -147,7 +147,7 @@
 		display: flex;
 		flex-flow: wrap;
 		width: 100%;
-		margin: 0upx 20upx 30upx 0upx;
+		margin: 0upx 10upx 30upx 0upx;
 		background-color: #3482e2;
 		border-radius: 20upx;
 		/* padding: 30upx; */
@@ -216,7 +216,7 @@
 	}
 
 	.tag-all {
-		margin: 48upx;
+		margin: 25upx;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: flex-start;

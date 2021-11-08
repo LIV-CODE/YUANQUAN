@@ -28,6 +28,14 @@
 
 				<!-- me-svg -->
 				<view class="me-svg">
+					<button class="me-sbg-btn" hover-class="fengrui-li-hover" @tap="questionsTap()">
+						<view class="Vajra-list-img">
+							<image class="fengrui-img" src="../../static/data/comment.svg" mode="aspectFill"></image>
+						</view>
+						<view class="Vajra-list-font">
+							共享收藏
+						</view>
+					</button>
 					<button class="me-sbg-btn" hover-class="fengrui-li-hover" @tap="allTag()">
 						<view class="Vajra-list-img">
 							<image class="fengrui-img" src="../../static/my/star.png" mode="aspectFill"></image>
@@ -319,10 +327,10 @@
 			abouTap: function() {
 				uni.navigateTo({
 					// #ifdef MP-WEIXIN
-					url: '../about/about',
+					url: '../questions/questions-list',
 					// #endif
 					// #ifdef MP-QQ
-					url: '../../about/about',
+					url: '../../questions/questions-list',
 					// #endif
 				})
 			},

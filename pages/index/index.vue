@@ -75,7 +75,7 @@
 						<image class="fengrui-img" src="../../static/index/poster.svg" mode="aspectFit"></image>
 					</view>
 					<view class="poster-text">
-						团队合作共享文件夹
+						团队合作-共享文件夹
 					</view>
 					<button class="poster-btn" @tap="popupSever()">进入</button>
 				</view>
@@ -321,7 +321,7 @@
 				},
 
 				// 导航区域（如果是接后端此字段为空）
-				vajra:[{"title":"搜索","type":"xs_tap","appid":"","route":"\/pages\/search\/search","himg":"..\/..\/static\/index\/1.png"},{"title":"分类","type":"xs_tap","appid":"","route":"..\/category\/category","himg":"..\/..\/static\/index\/2.png"},{"title":"收藏","type":"xs_default","appid":"","route":"..\/friend\/friend","himg":"..\/..\/static\/index\/4.png"},{"title":"热门","type":"xs_program","appid":"wx0f2bd3c9f8970c64","route":"pages\/index\/index","himg":"..\/..\/static\/index\/3.png"}],
+				vajra:[{"title":"搜索","type":"xs_tap","appid":"","route":"\/pages\/search\/search","himg":"..\/..\/static\/index\/1.png"},{"title":"分类","type":"xs_tap","appid":"","route":"..\/category\/category","himg":"..\/..\/static\/index\/2.png"},{"title":"收藏","type":"xs_default","appid":"","route":"..\/questions\/questions-list","himg":"..\/..\/static\/index\/4.png"}],
 
 				// 焦点
 				focusList: [],
@@ -703,28 +703,14 @@
 
 			// 保存在相册
 			popupSever: function() {
-				var that = this;
-
-
-				uni.previewImage({
-					current: 1,
-					//#ifdef MP-WEIXIN
-					urls: [that.about_center[0].posterdata],
-					//#endif
-
-					//#ifdef MP-QQ
-					urls: [that.about_center[0].qq_posterdata_copy],
-					//#endif
-					longPressActions: {
-						itemList: ['发送给朋友', '保存图片', '收藏'],
-						success: function(data) {
-							console.log('选中了第' + (data.tapIndex + 1) + '个按钮,第' + (data.index + 1) + '张图片');
-						},
-						fail: function(err) {
-							console.log(err.errMsg);
-						}
-					}
-				});
+				uni.navigateTo({
+					// #ifdef MP-WEIXIN
+					url: '../questions/questions-list',
+					// #endif
+					// #ifdef MP-QQ
+					url: '../../questions/questions-list',
+					// #endif
+				})
 			},
 
 			// 最新文章的查看更多点

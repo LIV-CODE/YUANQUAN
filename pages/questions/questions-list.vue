@@ -1,13 +1,13 @@
 <template>
 	<view>
-		<view class="que-post-view">
+		<!-- <view class="que-post-view">
 			<image class="fengrui-img" src="../../static/data/faq.svg" mode="widthFix"></image>
-		</view>
+		</view> -->
 		
 		<!-- 标题 -->
 		<view class="titel-h-w">
 			<view class="titel-h">
-				其他问题
+				共享文件夹
 			</view>
 		</view>
 		
@@ -15,10 +15,10 @@
 		<block >
 			<view class="que-lisr-v" v-for="(item ,index) in CommentsList" :key="index">
 				<view class="que-user" v-if="item.parent == '0'">
-					问
+					
 				</view>
 				<view class="que-user que-user-d" v-else >
-					答
+					
 				</view>
 				<view class="que-description">
 					<view class="que-name">
@@ -49,7 +49,13 @@
 		data() {
 			return {
 				posrId:"",
-				CommentsList:[],
+				CommentsList:[{"id":2892,"post":3577,"parent":0,"author":0,"author_name":"Yanli","author_url":"","date":"2021-11-04T15:54:37","date_gmt":"2021-11-04T07:54:37","content":{"rendered":"<p>\u725b<\/p>\n"}},
+				{"id":2892,"post":3577,"parent":0,"author":0,"author_name":"Yanli","author_url":"","date":"2021-11-04T15:54:37","date_gmt":"2021-11-04T07:54:37","content":{"rendered":"<p>\u725b<\/p>\n"}},
+				{"id":2892,"post":3577,"parent":0,"author":0,"author_name":"Yanli","author_url":"","date":"2021-11-04T15:54:37","date_gmt":"2021-11-04T07:54:37","content":{"rendered":"<p>\u725b<\/p>\n"}},
+				{"id":2892,"post":3577,"parent":0,"author":0,"author_name":"Yanli","author_url":"","date":"2021-11-04T15:54:37","date_gmt":"2021-11-04T07:54:37","content":{"rendered":"<p>\u725b<\/p>\n"}},
+				{"id":2892,"post":3577,"parent":0,"author":0,"author_name":"Yanli","author_url":"","date":"2021-11-04T15:54:37","date_gmt":"2021-11-04T07:54:37","content":{"rendered":"<p>\u725b<\/p>\n"}},
+				{"id":2892,"post":3577,"parent":0,"author":0,"author_name":"Yanli","author_url":"","date":"2021-11-04T15:54:37","date_gmt":"2021-11-04T07:54:37","content":{"rendered":"<p>\u725b<\/p>\n"}},
+				],
 				CommentsListTown:[],
 				page:1,
 			}
@@ -66,18 +72,18 @@
 			this.GetPostComments()
 		},
 		methods: {
-			GetPostComments:function(){
-				var that = this;
-				uni.request({
-					url: API + '/wp-json/wp/v2/comments?page=' + that.page,
-					success(res) {
-						that.CommentsList = that.CommentsList.concat(res.data);
-					},
-					fail(err) {
-						console.log(err);
-					}
-				});
-			}
+			// GetPostComments:function(){
+			// 	var that = this;
+			// 	uni.request({
+			// 		url: API + '/wp-json/wp/v2/comments?page=' + that.page,
+			// 		success(res) {
+			// 			that.CommentsList = that.CommentsList.concat(res.data);
+			// 		},
+			// 		fail(err) {
+			// 			console.log(err);
+			// 		}
+			// 	});
+			// }
 		}
 	}
 </script>
