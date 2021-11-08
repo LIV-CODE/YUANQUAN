@@ -8,7 +8,7 @@ de <template>
 						ResourseSpring 源泉
 					</view>
 					<view class="list-name-slug">
-						兮其若朴，旷兮其若谷
+						您的开源小助手
 					</view>
 				</view>
 				<view class="list-two-img">

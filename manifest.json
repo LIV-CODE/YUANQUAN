@@ -37,7 +37,39 @@
                 ]
             },
             "ios" : {},
-            "sdkConfigs" : {}
+            "sdkConfigs" : {},
+            "icons" : {
+                "android" : {
+                    "hdpi" : "static/icons/android/mipmap-hdpi/ic_launcher.png",
+                    "xhdpi" : "static/icons/android/mipmap-xhdpi/ic_launcher.png",
+                    "xxhdpi" : "static/icons/android/mipmap-xxhdpi/ic_launcher.png",
+                    "xxxhdpi" : "static/icons/android/mipmap-xxxhdpi/ic_launcher.png"
+                },
+                "ios" : {
+                    "appstore" : "static/logo/icon-1024.png",
+                    "iphone" : {
+                        "app@2x" : "static/icons/ios/AppIcon.appiconset/icon-40@3x.png",
+                        "app@3x" : "static/icons/ios/AppIcon.appiconset/icon-60@3x.png",
+                        "spotlight@2x" : "static/icons/ios/AppIcon.appiconset/icon-40@2x.png",
+                        "spotlight@3x" : "static/icons/ios/AppIcon.appiconset/icon-60@2x.png",
+                        "settings@2x" : "static/icons/ios/AppIcon.appiconset/icon-29@2x.png",
+                        "settings@3x" : "static/icons/ios/AppIcon.appiconset/icon-29@3x.png",
+                        "notification@2x" : "static/icons/ios/AppIcon.appiconset/icon-20@2x-ipad.png",
+                        "notification@3x" : "static/icons/ios/AppIcon.appiconset/icon-20@3x.png"
+                    },
+                    "ipad" : {
+                        "app" : "static/icons/ios/AppIcon.appiconset/icon-76.png",
+                        "app@2x" : "static/icons/ios/AppIcon.appiconset/icon-76@2x.png",
+                        "proapp@2x" : "static/icons/ios/AppIcon.appiconset/icon-83.5@2x.png",
+                        "spotlight" : "static/icons/ios/AppIcon.appiconset/icon-20@2x-ipad.png",
+                        "spotlight@2x" : "static/icons/ios/AppIcon.appiconset/icon-40@2x.png",
+                        "settings" : "static/icons/ios/AppIcon.appiconset/icon-29-ipad.png",
+                        "settings@2x" : "static/icons/ios/AppIcon.appiconset/icon-29@2x.png",
+                        "notification" : "static/icons/ios/AppIcon.appiconset/icon-20-ipad.png",
+                        "notification@2x" : "static/icons/ios/AppIcon.appiconset/icon-20@2x-ipad.png"
+                    }
+                }
+            }
         }
     },
     "quickapp" : {},
@@ -55,6 +87,11 @@
         "themeLocation" : "theme.json",
         "usingComponents" : {
             "mp-html" : "mp-html"
+        },
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : ""
+            }
         }
     },
     "mp-qq" : {

@@ -65,32 +65,20 @@
 								{{ valist.title }}
 							</view>
 						</view>
-						<!-- #ifdef MP-WEIXIN -->
-						<view class="Vajra-list" v-if="valist.type == 'xs_program'">
-							<navigator :path="valist.url" hover-class="none" open-type="navigate" :app-id="valist.appid"
-								target="miniProgram">
-								<view class="Vajra-list-img">
-									<image class="fengrui-img" :src="valist.himg" mode="aspectFit"></image>
-								</view>
-								<view class="Vajra-list-font">
-									{{ valist.title }}
-								</view>
-							</navigator>
-						</view>
 						<!-- #endif -->
 					</block>
-
 				</view>
+				
 				<!-- 海报 -->
-				<!-- <view class="poster">
+				<view class="poster">
 					<view class="poster-imgs">
 						<image class="fengrui-img" src="../../static/index/poster.svg" mode="aspectFit"></image>
 					</view>
 					<view class="poster-text">
-						心念所至，生万千喜欢22
+						团队合作共享文件夹
 					</view>
-					<button class="poster-btn" @tap="popupSever()">分享</button>
-				</view> -->
+					<button class="poster-btn" @tap="popupSever()">进入</button>
+				</view>
 			</view>
 
 			<!-- 首页公告 -->

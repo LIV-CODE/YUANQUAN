@@ -44,14 +44,6 @@
 							分享海报
 						</view>
 					</button>
-					<button class="me-sbg-btn" hover-class="fengrui-li-hover" @tap="questionsTap()">
-						<view class="Vajra-list-img">
-							<image class="fengrui-img" src="../../static/data/comment.svg" mode="aspectFill"></image>
-						</view>
-						<view class="Vajra-list-font">
-							提问列表
-						</view>
-					</button>
 					<!-- #ifdef MP-WEIXIN -->
 					<button class="me-sbg-btn" hover-class="fengrui-li-hover" open-type="contact" send-message-title="个人中心"
 						send-message-path="pages/me/me" show-message-card="true">
@@ -87,6 +79,17 @@
 
 			<!-- 功能列表 -->
 			<view class="metergasis">
+				<view class="metergasis-li" hover-class="fengrui-li-hover" @tap="abouTap()">
+					<view class="metergasis-li-img">
+						<image class="fengrui-img" src="../../static/my/signout.png" mode="aspectFill"></image>
+					</view>
+					<view class="metergasis-li-h">
+						共享文件夹
+					</view>
+					<view class="metergasis-li-rgth">
+						<image class="fengrui-img" src="../../static/my/more.svg" mode=""></image>
+					</view>
+				</view>
 				<view class="metergasis-li" hover-class="fengrui-li-hover" @tap="statementTap()">
 					<view class="metergasis-li-img">
 						<image class="fengrui-img" src="../../static/my/mit.png" mode="aspectFill"></image>

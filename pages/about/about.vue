@@ -2,7 +2,7 @@
 	<view class="center">
 		<!-- 顶部图片 -->
 		<view class="about-w">
-			<image class="fengrui-img" :src="about_center.fr_logo" mode="aspectFit"></image>
+			<image class="fengrui-img" src="../../static/logo/Resource Spring.png" mode="aspectFit"></image>
 		</view>
 		
 		<!-- 标题 -->
@@ -12,7 +12,7 @@
 		
 		<!-- 标语 -->
 		<view class="data-ad-Reading">
-			晚点遇见吧！你刚好成熟我刚好温柔
+			带给您极致开源体验。
 		</view>
 		<view class="data-view">
 			<view class="data-font">
@@ -22,7 +22,7 @@
 		
 		<!-- 版本说明 -->
 		<view class="author">
-		 架构：星宿UI V1.3.x  作者: 枫瑞博客网 协议: MIT
+		 作者：说得都队  版本：vision 1.0
 		</view>
 	</view>
 </template>

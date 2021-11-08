@@ -2,7 +2,7 @@
 	"pages": [{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "星宿UI--枫瑞博客网",
+				"navigationBarTitleText": "Resource Spring 源 泉 -- 您的开源小助手",
 				"enablePullDownRefresh": true,
 				"navigationStyle": "custom"
 			}
@@ -96,7 +96,7 @@
 		"navigationBarTextStyle": "@navTxtStyle",
 		"backgroundColor": "@bgColor",
 		"navigationBarBackgroundColor": "@navBgColor",
-		"navigationBarTitleText": "星宿UI--枫瑞博客网"
+		"navigationBarTitleText": "Resource Spring 源 泉 -- 您的开源小助手"
 	},
 	"tabBar": {
 		"color": "#7A7E83",
