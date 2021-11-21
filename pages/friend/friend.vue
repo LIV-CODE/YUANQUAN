@@ -1,6 +1,6 @@
 <template>
 	<view class="center">
-		<!-- 热评 写死的一句话 -->
+		<!-- 热评 -->
 		<view class="review" v-if="is_data_review">
 			{{ hotreview }}
 		</view>
