@@ -51,7 +51,7 @@
 				<image class="fengrui-img" src="../../static/data/data-no.svg" mode=""></image>
 			</view>
 			<view class="no-text">
-				您的世界还没有盆友哦！或者和小姐姐跑了......
+				您的世界还没有盆友哦！
 			</view>
 		</view>
 	</view>
