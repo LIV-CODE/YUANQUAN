@@ -3,14 +3,14 @@
 		<view class="index-ov" v-if="!is_show_login">
 			<!-- <view class="back-img"></view> -->
 
-			<!-- 标题 -->
+			<!-- 标题 --><!-- 标题 -->
 			<view class="titel-h-w">
 				<view class="titel-h">
 					{{ posdCenterTitle }}
 				</view>
 			</view>
 
-			<!-- 时间和装饰品 -->
+			<!-- 时间和装饰品 --><!-- 时间和装饰品 -->
 			<view class="time-view">
 				<view class="time-img">
 					<image class="fengrui-img" src="../../static/data/time.png" mode="aspectFit"></image>
@@ -20,7 +20,7 @@
 				</view>
 			</view>
 
-			<!-- 关注微信公众号 -->
+			<!-- 关注微信公众号 --><!-- 关注微信公众号 -->
 			<!-- #ifdef MP-WEIXIN -->
 			<view class="account-view" v-if="detailData.account_url != ''">
 				<view class="account-flex">
