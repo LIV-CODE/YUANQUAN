@@ -13,6 +13,7 @@
 
 			<!-- #ifdef MP-WEIXIN -->
 			<!-- 流量主广告或者图片 -->
+			<!-- 流量主广告或者图片 -->
 			<view class="me-ads">
 				<block v-if="about_center.length>0">
 					<view class="">
@@ -23,7 +24,7 @@
 			</view>
 			<!-- #endif -->
 
-			<!-- 资源列表 -->
+			<!-- 资源列表 --><!-- 资源列表 --><!-- 资源列表 -->
 			<block v-for="(relist ,index) in reclist" :key="index">
 				<view class="list-view-bg" v-if=" relist.account_url != '' || relist.fr_down_url != '' ">
 					<view class="list-view-img" @tap="newPostTap(relist.id)">
@@ -93,6 +94,7 @@
 
 <script>
 	// 引入资源文件
+	// 引入资源文件
 	import {
 		API
 	} from '@/components/api.js';
@@ -121,7 +123,7 @@
 		},
 		onLoad() {
 
-			// 进来提示
+			// 出现提示
 			uni.showToast({
 				icon: 'none',
 				title: "页面正在加载中，请稍等片刻"
