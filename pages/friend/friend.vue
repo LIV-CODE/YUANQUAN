@@ -171,7 +171,7 @@
 </script>
 
 <style>
-	/* 无数据时候 */
+	/* ，没有数据时候 */
 	.no-text {
 		color: #ADADAD;
 		margin-top: 40upx;
