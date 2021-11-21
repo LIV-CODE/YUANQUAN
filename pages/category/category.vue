@@ -1,6 +1,6 @@
 de <template>
 	<view class="page-ov">
-		<!-- 0.6 正方形图 -->
+		<!-- 0.6 正方形图 --><!-- 专题滑动区域 -->
 		<view class="" v-if="about_center[0].categ_style != 2">
 			<view class="list-two-w">
 				<view class="list-two-list">
