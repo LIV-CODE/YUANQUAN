@@ -8,7 +8,7 @@
 			</view>
 
 			<view class="sel-over-w" style="">
-				<!-- 头像 -->
+				<!-- 头像 --><!-- 头像 -->
 				<view class="self-w">
 					<view class="self-user-img">
 						<image class="fengrui-img" :src="xingsu.avatarUrl" mode="aspectFill"></image>
